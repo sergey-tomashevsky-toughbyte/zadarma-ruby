@@ -37,7 +37,7 @@ module Zadarma
     end
 
     def pbx_record_request(call_id, params = {})
-      request :get, "/pbx/record/requests/", params.merge(call_id: call_id)
+      request :get, "/pbx/record/request/", params.merge(call_id: call_id)
     end
 
     def send_sms(number, message, params = {})
