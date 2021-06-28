@@ -28,7 +28,6 @@ module Zadarma
       request :put, "/sip/redirection/", params.merge(id: id)
     end
 
-
     def pbx_internal
       request :get, "/pbx/internal/"
     end
@@ -37,14 +36,13 @@ module Zadarma
       request :put, "/pbx/internal/recording/", params.merge(id: id, status: status)
     end
 
-    def pbx_record_request(call_id)
+    def pbx_record_request(call_id, params = {})
       request :get, "/pbx/record/requests/", params.merge(call_id: call_id)
     end
 
     def send_sms(number, message, params = {})
       request :post, "/sms/send/", params.merge(number: number, message: message)
     end
-
 
     def statistics(time_start, time_end, params = {})
       result = request :get, "/statistics/", params.merge(start: time_s(time_start), end: time_s(time_end))
